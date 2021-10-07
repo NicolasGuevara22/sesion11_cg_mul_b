@@ -40,15 +40,12 @@ function init() {
     scene = new THREE.Scene();
     var arrCube = [];//este es el arreglo donde se almacena los cubos
     var numCubos = 3;// esta variable se encarga de el numero de cubos que quiera utilizar
-
     var t = 2.2;
     for (var i = 0; i < numCubos ; i++) {
-        h = Math.PI/2 
-        d = t * 1.05
-        arrCube.push(cubo(t, t, t, 0, 0, 0, 'Basic','red',false));//este metodo se encarga de insertar los cubos, ademas de saber el material, y el color del cubo
-
-        arrCube[i].geometry.translate(i*t * 1.05 , i-t * 1.05 ,0)//este metodo se encarga de la traslacion de los cubos creados
-
+    //h = Math.PI/2 
+    d = t * 2
+    arrCube.push(cubo(t, t, t, 0, 0, 0, 'Basic','red',false));//este metodo se encarga de insertar los cubos, ademas de saber el material, y el color del cubo
+    arrCube[i].geometry.translate(i*t * 1.05 , i-t * 1 ,i*-0.5)//este metodo se encarga de la traslacion de los cubos creados
       /*if (i == 0)
             arrCube[i].geometry.translate(d-2.3, d+2, 0)
         else if (i == 1)
@@ -66,7 +63,7 @@ function init() {
     const axesHelper = new THREE.AxesHelper(10);
     scene.add(axesHelper);
 
-    camera = new THREE.PerspectiveCamera(115, window.innerWidth / window.innerHeight, 0.1, 100);
+    camera = new THREE.PerspectiveCamera(100, window.innerWidth / window.innerHeight, 0.1, 100);
     camera.position.set(6, 6, 6);
     camera.lookAt(arrCube[2].position);
     clock = new THREE.Clock();
