@@ -43,8 +43,8 @@ function init() {
     var t = 2.2;
     for (var i = 0; i < numCubos ; i++) {
     //h = Math.PI/2 
-    d = t * 2
-    arrCube.push(cubo(t, t, t, 0, 0, 0, 'Basic','red',false));//este metodo se encarga de insertar los cubos, ademas de saber el material, y el color del cubo
+    d = t 
+    arrCube.push(cubo(t, t, t, 0, 0, 0, 'Basic','red',false));//este se encarga de insertar los cubos, ademas de saber el material, y el color del cubo
     arrCube[i].geometry.translate(i*t * 1.05 , i-t * 1 ,i*-0.5)//este metodo se encarga de la traslacion de los cubos creados
       /*if (i == 0)
             arrCube[i].geometry.translate(d-2.3, d+2, 0)
