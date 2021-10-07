@@ -41,23 +41,12 @@ function init() {
     var arrCube = [];//este es el arreglo donde se almacena los cubos
     var numCubos = 3;// esta variable se encarga de el numero de cubos que quiera utilizar
     var t = 2.2;
-    for (var i = 0; i < numCubos ; i++) {
-    //h = Math.PI/2 
+    for (var i = 0; i < numCubos ; i++) { 
     d = t 
     arrCube.push(cubo(t, t, t, 0, 0, 0, 'Basic','red',false));//este se encarga de insertar los cubos, ademas de saber el material, y el color del cubo
-    arrCube[i].geometry.translate(i*t * 1.05 , i-t * 1 ,i*-0.5)//este metodo se encarga de la traslacion de los cubos creados
-      /*if (i == 0)
-            arrCube[i].geometry.translate(d-2.3, d+2, 0)
-        else if (i == 1)
-            arrCube[i].geometry.translate(0, d, d)
-        else
-            arrCube[i].geometry.translate(0, 0, d+2.1)*/
-
-        //arrCube[i].geometry.translate((i==0)*d, (i==1)*d, (i==2)*d)
-
-        //arrCube[i].geometry.rotateX(-Math.PI/2);
-        //arrCube[i].geometry.rotateY(Math.PI);
-        //arrCube[i].geometry.rotateZ(-Math.PI/2);
+    arrCube[i].geometry.translate(i*t * 1.05 , i-t * 1 ,i*-0.5)/*este metodo se encarga de la traslacion de los cubos creados a partir de 3 parametros los cuales se encargan de 
+    posicionarlos en las coordenadas x,y,z dependiendo de la cantidad de ciclos del for*/  
+      
     }   
         
     const axesHelper = new THREE.AxesHelper(10);
