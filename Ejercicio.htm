@@ -38,24 +38,25 @@ function init() {
     renderer.setSize(window.innerWidth*0.99, window.innerHeight*0.99);
     document.body.appendChild(renderer.domElement);
     scene = new THREE.Scene();
-    
-    var arrCube = [];
+    var arrCube = [];//este es el arreglo donde se almacena los cubos
+    var numCubos = 3;// esta variable se encarga de el numero de cubos que quiera utilizar
 
     var t = 2.2;
-    for (var i = 0; i < 3; i++) {
-        //var numCube = 4;
+    for (var i = 0; i < numCubos ; i++) {
         h = Math.PI/2 
         d = t * 1.05
-        arrCube.push(cubo(t, t, t, 0, 0, 0, 'Basic', (i==0 ? 'red': i==1 ? 'green' : 'blue'), false));
-        
-      if (i == 0)
-            arrCube[i].geometry.translate(-d, d+2, 0)
-        else if (i == 1)
-            arrCube[i].geometry.translate(0, 0, d)
-        else
-            arrCube[i].geometry.translate(0, 0, d-0.2)
+        arrCube.push(cubo(t, t, t, 0, 0, 0, 'Basic','red',false));//este metodo se encarga de insertar los cubos, ademas de saber el material, y el color del cubo
 
-        arrCube[i].geometry.translate((i==0)*d, (i==1)*d, (i==2)*d)
+        arrCube[i].geometry.translate(i*t * 1.05 , i-t * 1.05 ,0)//este metodo se encarga de la traslacion de los cubos creados
+
+      /*if (i == 0)
+            arrCube[i].geometry.translate(d-2.3, d+2, 0)
+        else if (i == 1)
+            arrCube[i].geometry.translate(0, d, d)
+        else
+            arrCube[i].geometry.translate(0, 0, d+2.1)*/
+
+        //arrCube[i].geometry.translate((i==0)*d, (i==1)*d, (i==2)*d)
 
         //arrCube[i].geometry.rotateX(-Math.PI/2);
         //arrCube[i].geometry.rotateY(Math.PI);
@@ -65,7 +66,7 @@ function init() {
     const axesHelper = new THREE.AxesHelper(10);
     scene.add(axesHelper);
 
-    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100);
+    camera = new THREE.PerspectiveCamera(115, window.innerWidth / window.innerHeight, 0.1, 100);
     camera.position.set(6, 6, 6);
     camera.lookAt(arrCube[2].position);
     clock = new THREE.Clock();
